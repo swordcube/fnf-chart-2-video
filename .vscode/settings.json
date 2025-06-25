@@ -1,0 +1,6 @@
+{
+    "python.autoComplete.extraPaths": [
+        ".venv/lib/python3.13/site-packages",
+        "game"
+    ],
+}

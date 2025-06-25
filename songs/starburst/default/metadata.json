@@ -1,0 +1,86 @@
+{
+	"freeplay": {
+		"album": "vol1",
+		"icon": "bf",
+		"ratings": {}
+	},
+	"game": {
+		"stage": "chiplet",
+		"scrollSpeed": {
+			"hard": 3.2
+		},
+		"characters": {
+			"spectator": "cubical_speakers",
+			"opponent": "chiplet",
+			"player": "bf"
+		},
+		"noteSkin": "cubical",
+		"uiSkin": "cubical",
+		"hudSkin": "cubical"
+	},
+	"song": {
+		"timingPoints": [
+			{
+				"b": 150,
+				"s": 0,
+				"t": 0,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 160,
+				"s": 119.466666666667,
+				"t": 11200,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 170,
+				"s": 136.466666666668,
+				"t": 12700.0000000001,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 160,
+				"s": 1461.6431372549,
+				"t": 136935.294117647,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 150,
+				"s": 1581.6431372549,
+				"t": 148935.294117647,
+				"ts": [
+					4,
+					4
+				]
+			}
+		],
+		"tracks": {
+			"spectator": [],
+			"opponent": [
+				"vocals-chiplet"
+			],
+			"player": [
+				"vocals-bf"
+			]
+		},
+		"artist": "caffie",
+		"charter": "swordcube",
+		"difficulties": [
+			"hard"
+		],
+		"mixes": [],
+		"title": "Starburst"
+	}
+}

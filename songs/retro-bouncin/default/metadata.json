@@ -1,0 +1,145 @@
+{
+	"freeplay": {
+		"album": "vol1",
+		"icon": "bf",
+		"ratings": {}
+	},
+	"game": {
+		"stage": "chiplet",
+		"scrollSpeed": {
+			"hard": 3
+		},
+		"characters": {
+			"spectator": "cubical_speakers",
+			"opponent": "chiplet",
+			"player": "bf"
+		},
+		"noteSkin": "cubical",
+		"uiSkin": "cubical",
+		"hudSkin": "cubical"
+	},
+	"song": {
+		"timingPoints": [
+			{
+				"b": 170,
+				"t": 0,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 160,
+				"t": 52235.2941176471,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 150,
+				"t": 53735.2941176471,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 130,
+				"t": 55335.2941176471,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 170,
+				"t": 57181.4479638009,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 160,
+				"t": 120710.859728507,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 150,
+				"t": 122210.859728507,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 130,
+				"t": 123810.859728507,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 170,
+				"t": 125657.013574661,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 160,
+				"t": 166598.190045249,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 150,
+				"t": 168098.190045249,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 130,
+				"t": 169698.190045249,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 170,
+				"t": 171544.343891403,
+				"ts": [
+					4,
+					4
+				]
+			}
+		],
+		"tracks": {
+			"spectator": [],
+			"opponent": [
+				"vocals-chiplet"
+			],
+			"player": [
+				"vocals-bf"
+			]
+		},
+		"artist": "caffie",
+		"charter": "swordcube",
+		"difficulties": [
+			"hard"
+		],
+		"mixes": [],
+		"title": "Retro Bouncin"
+	}
+}

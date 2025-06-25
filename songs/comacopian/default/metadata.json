@@ -1,0 +1,97 @@
+{
+	"freeplay": {
+		"album": "vol1",
+		"icon": "bf",
+		"ratings": {}
+	},
+	"game": {
+		"stage": "chiplet",
+		"scrollSpeed": {
+			"hard": 3
+		},
+		"characters": {
+			"spectator": "cubical_speakers",
+			"opponent": "chiplet",
+			"player": "bf"
+		},
+		"noteSkin": "cubical",
+		"uiSkin": "cubical",
+		"hudSkin": "cubical"
+	},
+	"song": {
+		"timingPoints": [
+			{
+				"b": 155,
+				"t": 0,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 155,
+				"t": 12387.0967741935,
+				"ts": [
+					6,
+					4
+				]
+			},
+			{
+				"b": 175,
+				"t": 14709.6774193548,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 175,
+				"t": 147738.248847926,
+				"ts": [
+					6,
+					4
+				]
+			},
+			{
+				"b": 155,
+				"t": 149795.391705069,
+				"ts": [
+					4,
+					4
+				]
+			},
+			{
+				"b": 155,
+				"t": 173021.198156682,
+				"ts": [
+					6,
+					4
+				]
+			},
+			{
+				"b": 155,
+				"t": 175343.778801843,
+				"ts": [
+					4,
+					4
+				]
+			}
+		],
+		"tracks": {
+			"spectator": [],
+			"opponent": [
+				"vocals-chiplet"
+			],
+			"player": [
+				"vocals-bf"
+			]
+		},
+		"artist": "caffie",
+		"charter": "caffie",
+		"difficulties": [
+			"hard"
+		],
+		"mixes": [],
+		"title": "Comacopian"
+	}
+}

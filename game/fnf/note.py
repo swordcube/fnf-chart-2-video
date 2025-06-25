@@ -41,6 +41,11 @@ class Note(game.sprite.Sprite):
 
         self.y = (self.time - song_pos) * self.strumline.scroll_speed * 0.45 * scroll_mult
 
+        if self.is_sustain_note and scroll_mult < 0.0:
+            self.y -= abs(self.get_current_height())
+            if self.is_end_piece and self.scaleY > 0.0:
+                self.scaleY = -self.scaleY
+
         if self.time <= song_pos:
             strum.confirm()
             self.strumline.notes.remove_child(self)

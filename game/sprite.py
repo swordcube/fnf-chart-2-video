@@ -100,8 +100,26 @@ class Sprite(game.gameobject.GameObject):
 
         if self.centered:
             first_frame: game.sparrowatlas.SparrowFrame = frames[0]
-            dest_x -= (first_frame.width * self.scaleY) / 2
-            dest_y -= (first_frame.height * self.scaleY) / 2
+            dest_x -= (first_frame.width * abs(self.scaleY)) / 2
+            dest_y -= (first_frame.height * abs(self.scaleY)) / 2
+
+        frame_x = int(frame.x * abs(self.scaleX))
+        frame_y = int(frame.y * abs(self.scaleY))
+        frame_width = int(frame.width * abs(self.scaleX))
+        frame_height = int(frame.height * abs(self.scaleY))
+
+        left = frame_x + frame_width
+        top = frame_y + frame_height
+
+        if self.scaleX < 0.0:
+            frame_x = 0
+            left = frame_width
+            scaled_img = scaled_img.crop((frame_x, frame_y, left, top))#.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+
+        if self.scaleY < 0.0:
+            frame_y = 0
+            top = frame_height
+            scaled_img = scaled_img.crop((frame_x, frame_y, left, top))#.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
 
         game_img.alpha_composite(
             scaled_img,
@@ -109,7 +127,7 @@ class Sprite(game.gameobject.GameObject):
                 int(dest_x + (frame.offsetX * self.scaleX)), int(dest_y + (frame.offsetY * self.scaleY)),
             ),
             (
-                int(frame.x * self.scaleX), int(frame.y * self.scaleY),
-                int((frame.x + frame.width) * self.scaleX), int((frame.y + frame.height) * self.scaleY)
+                frame_x, frame_y,
+                left, top
             )
         )

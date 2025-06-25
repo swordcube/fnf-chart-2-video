@@ -122,16 +122,17 @@ class Game:
         return self.img.convert("RGB")
 
 
-    def get_image(self, file_path: str):
+    def get_image(self, file_path: str) -> Image:
         if not file_path in self.image_cache:
             self.image_cache[file_path] = Image.open(file_path)
         
         return self.image_cache[file_path]
     
-    def get_scaled_image(self, file_path: str, width: int, height: int):
-        key: str = file_path + "_" + str(width) + "x" + str(height)
+    def get_scaled_image(self, file_path: str, width: int, height: int) -> Image:
+        key: str = file_path + "_" + str(abs(width)) + "x" + str(abs(height))
         if not key in self.scaled_image_cache:
-            self.scaled_image_cache[key] = self.get_image(file_path).resize((width, height), Image.Resampling.LANCZOS)
+            img: Image = self.get_image(file_path).resize((abs(width), abs(height)), resample=Image.Resampling.LANCZOS)
+            self.scaled_image_cache[key] = img
         
         return self.scaled_image_cache[key]
     

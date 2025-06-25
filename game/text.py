@@ -99,7 +99,7 @@ class Text(game.sprite.Sprite):
 
         text_window = img.getbbox()
         img = img.crop(text_window)
-        img = img.resize((int(img.width / Text.OVERSAMPLING), int(img.height / Text.OVERSAMPLING)), Image.Resampling.LANCZOS)
+        img = img.resize((int(img.width / Text.OVERSAMPLING), int(img.height / Text.OVERSAMPLING)), reducing_gap=3.0, resample=Image.Resampling.LANCZOS)
 
         self.atlas = game.sparrowatlas.SparrowAtlas.from_image(img)
         self.frame = 0

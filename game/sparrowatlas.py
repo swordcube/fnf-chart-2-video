@@ -41,8 +41,8 @@ class SparrowAtlas:
                 self.frames[name].append(SparrowFrame(
                     float(item.get("x")),
                     float(item.get("y")),
-                    -float(item.get("frameX")),
-                    -float(item.get("frameY")),
+                    -float(item.get("frameX") if item.get("frameX") != None else 0),
+                    -float(item.get("frameY") if item.get("frameY") != None else 0),
                     float(item.get("width")),
                     float(item.get("height")),
                     frame_id

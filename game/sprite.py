@@ -79,6 +79,9 @@ class Sprite(game.gameobject.GameObject):
                 self._frame_timer -= frame_time
     
     def draw(self, game_img: Image):
+        if self.scaleX == 0.0 or self.scaleY == 0.0:
+            return
+
         key = self.animation
         if len(key) == 0:
             key = list(self.atlas.frames.keys())[0]
@@ -108,18 +111,14 @@ class Sprite(game.gameobject.GameObject):
         frame_width = int(frame.width * abs(self.scaleX))
         frame_height = int(frame.height * abs(self.scaleY))
 
-        left = frame_x + frame_width
-        top = frame_y + frame_height
-
         if self.scaleX < 0.0:
-            frame_x = 0
-            left = frame_width
-            scaled_img = scaled_img.crop((frame_x, frame_y, left, top))#.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+            frame_x = int((self.atlas.img.width - frame.x - frame.width) * abs(self.scaleX))
 
         if self.scaleY < 0.0:
-            frame_y = 0
-            top = frame_height
-            scaled_img = scaled_img.crop((frame_x, frame_y, left, top))#.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+            frame_y = int((self.atlas.img.height - frame.y - frame.height) * abs(self.scaleY))
+        
+        left = frame_x + frame_width
+        top = frame_y + frame_height
 
         game_img.alpha_composite(
             scaled_img,

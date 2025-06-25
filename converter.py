@@ -29,25 +29,28 @@ if __name__ == "__main__":
         print("No mix specified, using default instead!\n")
         song_mix = "default"
     
-    difficulty = force_difficulty if len(force_difficulty) > 0 else input("Difficulty (optional, default=normal): ").strip()
+    difficulty = force_difficulty if len(force_difficulty) > 0 else input("Difficulty (default=normal): ").strip()
 
     if len(difficulty) == 0:
         print("No difficulty specified, using normal instead!\n")
         difficulty = "normal"
 
-    video_fps_raw = input("Video FPS (optional, default=60): ").strip()
+    video_fps_raw = input("Video FPS (default=60): ").strip()
 
     if len(video_fps_raw) == 0:
         video_fps_raw = "60"
 
-    video_duration_raw = input("Video Duration (in seconds) (optional, default=full): ").strip()
+    video_duration_raw = input("Video Duration (in seconds) (default=full): ").strip()
 
     yes_list = ["true", "t", "yes", "absolutely", "positively", "no no", "false false", "f f", "ff", "nn", "n n", "y", "hell yeah", "hell yes", "hy", "dude, fuck. yes.", "dfy"]
     
-    is_downscroll_raw = input("Downscroll? (optional, yes/no, default=false): ")
+    is_downscroll_raw = input("Downscroll? (yes/no, default=no): ")
     is_downscroll = is_downscroll_raw.lower() in yes_list
 
-    is_verbose_raw = input("Verbose Output? (optional, yes/no): ")
+    smooth_sustains_raw = input("Smooth Sustains? (takes longer to export) (yes/no, default=no): ")
+    smooth_sustains = smooth_sustains_raw.lower() in yes_list
+
+    is_verbose_raw = input("Verbose Output? (yes/no, default=no): ")
     is_verbose = is_verbose_raw.lower() in yes_list
 
     # the converting!
@@ -107,6 +110,7 @@ if __name__ == "__main__":
     game.difficulty = difficulty
     
     game.downscroll = is_downscroll
+    game.smooth_sustains = smooth_sustains
 
     if is_verbose:
         print("Starting gameplay...")

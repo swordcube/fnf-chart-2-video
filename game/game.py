@@ -28,6 +28,7 @@ class Game:
         self.song_mix = "default"
         self.difficulty = "normal"
         self.downscroll = False
+        self.smooth_sustains = False
 
         self.width = 1280
         self.height = 720
@@ -92,6 +93,7 @@ class Game:
         self.add_child(conductor)
 
         self.opponent_strums = game.fnf.strumline.StrumLine(scroll_speed, (self.width * 0.25) - (strum_spacing * 2), 50, self.downscroll, opponent_notes)
+        self.opponent_strums.cpu = True
         self.add_child(self.opponent_strums)
 
         self.player_strums = game.fnf.strumline.StrumLine(scroll_speed, (self.width * 0.75) - (strum_spacing * 2), 50, self.downscroll, player_notes)
@@ -129,9 +131,16 @@ class Game:
         return self.image_cache[file_path]
     
     def get_scaled_image(self, file_path: str, width: int, height: int) -> Image:
-        key: str = file_path + "_" + str(abs(width)) + "x" + str(abs(height))
+        key: str = file_path + "_" + str(width) + "x" + str(height)
         if not key in self.scaled_image_cache:
             img: Image = self.get_image(file_path).resize((abs(width), abs(height)), resample=Image.Resampling.LANCZOS)
+
+            if width < 0:
+                img = img.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+
+            if height < 0:
+                img = img.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+
             self.scaled_image_cache[key] = img
         
         return self.scaled_image_cache[key]

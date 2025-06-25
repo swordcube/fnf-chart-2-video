@@ -9,6 +9,7 @@ import game.fnf.note
 class Strum(game.sprite.Sprite):
     def __init__(self, x: float = 0.0, y: float = 0.0, direction: int = 0):
         super().__init__(x, y)
+
         self.direction = direction
         directions = game.fnf.note.Note.DIRECTIONS
 
@@ -46,6 +47,7 @@ class StrumLine(game.gameobject.GameObject):
     def __init__(self, scroll_speed:float, x: float = 0.0, y: float = 0.0, downscroll: bool = False, notes: list[dict] = []):
         super().__init__(x, y)
 
+        self.cpu = False
         self.scroll_speed = scroll_speed
         self.downscroll = downscroll
 
@@ -69,11 +71,8 @@ class StrumLine(game.gameobject.GameObject):
         self.notes = game.gameobject.GameObject()
         self.add_child(self.notes)
 
-        # for note_data in notes:
-        #     direction = int(note_data["d"]) % 4
-        #     note = game.fnf.note.Note(self, self.strums.children[direction].x, -9999, float(note_data["t"]), direction, float(note_data["l"]))
-        #     self.notes.add_child(note)
-        #     pass
+        self.splashes = game.gameobject.GameObject()
+        self.add_child(self.splashes)
     
     def update(self, dt):
         song_pos = game.game.Game.current.total_time * 1000.0

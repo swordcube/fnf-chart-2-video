@@ -38,8 +38,8 @@ class Strum(game.sprite.Sprite):
         super().update(dt)
 
     def confirm(self):
-        self.play(f"{game.fnf.note.Note.DIRECTIONS[self.direction]} confirm", True)
-        self.confirmTimer = 0.1
+        self.play(f"{game.fnf.note.Note.DIRECTIONS[self.direction]} confirm", False)
+        self.confirmTimer = 0.15
 
 class StrumLine(game.gameobject.GameObject):
     SPACING = 160 * 0.7
@@ -71,6 +71,9 @@ class StrumLine(game.gameobject.GameObject):
         self.notes = game.gameobject.GameObject()
         self.add_child(self.notes)
 
+        self.holdcovers = game.gameobject.GameObject()
+        self.add_child(self.holdcovers)
+
         self.splashes = game.gameobject.GameObject()
         self.add_child(self.splashes)
     
@@ -79,7 +82,7 @@ class StrumLine(game.gameobject.GameObject):
 
         while self.raw_note_index < len(self.raw_notes):
             raw_note = self.raw_notes[self.raw_note_index]
-            if song_pos < float(self.raw_notes[self.raw_note_index]["t"]) - 2500:
+            if song_pos < float(raw_note["t"]) - (2500 / self.scroll_speed):
                 break
 
             time = float(raw_note["t"])

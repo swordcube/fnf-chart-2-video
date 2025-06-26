@@ -5,6 +5,7 @@ import game.sprite
 
 import game.fnf.strumline
 import game.fnf.notesplash
+import game.fnf.holdcover
 
 class Note(game.sprite.Sprite):
     DIRECTIONS = ["left", "down", "up", "right"]
@@ -29,9 +30,6 @@ class Note(game.sprite.Sprite):
                 cur_conductor = game.fnf.conductor.Conductor.current
                 self.step_length = cur_conductor.get_step_length()
 
-                cur_game = game.game.Game.current
-                song_pos = cur_game.total_time * 1000.0
-                
                 self.scaleY = max((self.step_length / self.get_frame_height()) * 0.7 * self.strumline.scroll_speed, 0.0)
             
             self.x -= 16 # stupid hardcoded value, i don't care!
@@ -70,6 +68,10 @@ class Note(game.sprite.Sprite):
             if self.is_end_piece and self.scaleY > 0.0:
                 self.scaleY = -self.scaleY
 
+        # NOTE HITTING CODE!!!
+        # TODO: remember that this is the note hitting code.
+        # TODO: remember to remember that this is the note hitting code.
+        # TODO: remember to remember to remember that this is the note hitting code.
         if self.time <= song_pos and not self.was_hit:
             self.was_hit = True
             strum.confirm()
@@ -80,7 +82,18 @@ class Note(game.sprite.Sprite):
             if not self.strumline.cpu and not self.is_sustain_note:
                 splash = game.fnf.notesplash.NoteSplash(strum.x, strum.y, self.direction)
                 self.strumline.splashes.add_child(splash)
-        
+
+            if self.length > 50 and not self.is_sustain_note:
+                hold_cover = game.fnf.holdcover.HoldCover(self.strumline.cpu, strum.x, strum.y, self.direction)
+                hold_cover.holdTimer = self.length
+                self.strumline.holdcovers.add_child(hold_cover)
+            
+            cur_game = game.game.Game.current
+            target = cur_game.opponent if self.strumline.cpu else cur_game.player
+            
+            if target:
+                target.sing(self.direction)
+
         if self.time <= song_pos - ((350 / self.strumline.scroll_speed) + self.step_length) and self.was_hit:
             self.strumline.notes.remove_child(self)
 

@@ -78,6 +78,16 @@ class Sprite(game.gameobject.GameObject):
 
                 self._frame_timer -= frame_time
     
+    def is_animation_finished(self) -> bool:
+        if not self.atlas: return True
+
+        key = self.animation
+        if len(key) == 0:
+            key = list(self.atlas.frames.keys())[0]
+
+        total_frames = len(self.atlas.frames[key]) 
+        return self.frame >= total_frames - 1
+
     def draw(self, game_img: Image):
         if abs(self.scaleX) <= 0.001 or abs(self.scaleY) <= 0.001:
             return

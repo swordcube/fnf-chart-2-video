@@ -12,7 +12,7 @@
 		"characters": {
 			"spectator": "cubical_speakers",
 			"opponent": "chiplet",
-			"player": "bf"
+			"player": "bf-scs"
 		},
 		"noteSkin": "cubical",
 		"uiSkin": "cubical",

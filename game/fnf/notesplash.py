@@ -24,5 +24,5 @@ class NoteSplash(game.sprite.Sprite):
     def update(self, dt):
         super().update(dt)
 
-        if self.frame >= len(self.atlas.frames[self.animation]) - 1:
+        if self.is_animation_finished():
             self.parent.remove_child(self)

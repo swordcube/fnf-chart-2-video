@@ -8,6 +8,7 @@ import game.sprite
 import game.text
 import game.sparrowatlas
 
+import game.fnf.character
 import game.fnf.strumline
 import game.fnf.conductor
 import game.fnf.timingpoint
@@ -29,6 +30,9 @@ class Game:
         self.difficulty = "normal"
         self.downscroll = False
         self.smooth_sustains = False
+
+        self.opponent: game.fnf.character.Character = None
+        self.player: game.fnf.character.Character = None
 
         self.width = 1280
         self.height = 720
@@ -91,6 +95,16 @@ class Game:
         conductor.setup_timing_points(tp)
         game.fnf.conductor.Conductor.current = conductor
         self.add_child(conductor)
+        
+        self.opponent = game.fnf.character.Character(self.width * 0.25, self.height * 0.5, chart_meta["game"]["characters"]["opponent"])
+        self.opponent.x -= self.opponent.get_current_width() / 2
+        self.opponent.y -= self.opponent.get_current_height() / 2
+        self.add_child(self.opponent)
+        
+        self.player = game.fnf.character.Character(self.width * 0.75, self.height * 0.5, chart_meta["game"]["characters"]["player"])
+        self.player.x -= self.player.get_current_width() / 2
+        self.player.y -= self.player.get_current_height() / 2
+        self.add_child(self.player)
 
         self.opponent_strums = game.fnf.strumline.StrumLine(scroll_speed, (self.width * 0.25) - (strum_spacing * 2), 50, self.downscroll, opponent_notes)
         self.opponent_strums.cpu = True

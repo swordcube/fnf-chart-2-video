@@ -1,0 +1,215 @@
+{
+	"healthIcon": {
+		"isPixel": false,
+		"scale": 1,
+		"offset": [
+			0,
+			10
+		],
+		"flipX": true,
+		"color": "#ff5a58",
+		"animations": {
+			"idle": {
+				"prefix": "idle0",
+				"fps": 14,
+				"looped": true,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"winning": {
+				"prefix": "winning0",
+				"fps": 14,
+				"looped": true,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"losing": {
+				"prefix": "losing0",
+				"fps": 14,
+				"looped": true,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"toWinning": {
+				"prefix": "toWinning0",
+				"fps": 14,
+				"looped": false,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"toLosing": {
+				"prefix": "toLosing0",
+				"fps": 14,
+				"looped": false,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"fromWinning": {
+				"prefix": "fromWinning0",
+				"fps": 14,
+				"looped": false,
+				"offset": [
+					0,
+					0
+				]
+			},
+			"fromLosing": {
+				"prefix": "fromLosing0",
+				"fps": 14,
+				"looped": false,
+				"offset": [
+					0,
+					0
+				]
+			}
+		}
+	},
+	"atlas": {
+		"type": "sparrow",
+		"path": "sprite",
+		"gridSize": null
+	},
+	"gridSize": [
+		0,
+		0
+	],
+	"animations": {
+		"singDOWN": {
+			"prefix": "down",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": false,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singRIGHTmiss": {
+			"prefix": "right miss",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": true,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singLEFTmiss": {
+			"prefix": "left miss",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": true,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singUP": {
+			"prefix": "up",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": false,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"idle": {
+			"prefix": "idle",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": false,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singRIGHT": {
+			"prefix": "right",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": false,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singDOWNmiss": {
+			"prefix": "down miss",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": true,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singLEFT": {
+			"prefix": "left",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": false,
+			"offset": [
+				0,
+				0
+			]
+		},
+		"singUPmiss": {
+			"prefix": "up miss",
+			"texture": null,
+			"indices": null,
+			"fps": 14,
+			"looped": true,
+			"offset": [
+				0,
+				0
+			]
+		}
+	},
+	"position": [
+		-150,
+		-30
+	],
+	"camera": [
+		30,
+		80
+	],
+	"scale": 0.75,
+	"flipX": true,
+	"isPlayer": true,
+	"antialiasing": true,
+	"singDuration": 4,
+	"danceSteps": [
+		"idle"
+	],
+	"singSteps": [
+		"singLEFT",
+		"singDOWN",
+		"singUP",
+		"singRIGHT"
+	],
+	"missSteps": [
+		"singLEFTmiss",
+		"singDOWNmiss",
+		"singUPmiss",
+		"singRIGHTmiss"
+	]
+}

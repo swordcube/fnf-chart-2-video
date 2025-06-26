@@ -79,7 +79,7 @@ class Sprite(game.gameobject.GameObject):
                 self._frame_timer -= frame_time
     
     def draw(self, game_img: Image):
-        if self.scaleX == 0.0 or self.scaleY == 0.0:
+        if abs(self.scaleX) <= 0.001 or abs(self.scaleY) <= 0.001:
             return
 
         key = self.animation

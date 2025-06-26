@@ -93,7 +93,7 @@ class StrumLine(game.gameobject.GameObject):
             sustain_pieces = raw_sustain_pieces + 1 if raw_sustain_pieces > 0 else 0 
 
             for i in range(sustain_pieces):
-                note = game.fnf.note.Note(self, self.strums.children[direction].x, -9999, time + (i * step_length), direction, length, True, i >= sustain_pieces - 1)
+                note = game.fnf.note.Note(self, self.strums.children[direction].x, -9999, time + (i * step_length), direction, 0, True, i >= sustain_pieces - 1)
                 note.centered = False
                 self.notes.add_child(note)
             

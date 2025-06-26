@@ -19,6 +19,7 @@ class Note(game.sprite.Sprite):
         self.is_sustain_note = is_sustain_note
         self.is_end_piece = is_end_piece
         self.was_hit = False
+        self.step_length = 0.0
         
         self.atlas = game.sparrowatlas.SparrowAtlas("assets/notes", 24)
         self.scaleX = self.scaleY = 0.7
@@ -51,17 +52,14 @@ class Note(game.sprite.Sprite):
 
         if cur_game.smooth_sustains:
             if self.is_sustain_note:
-                sexo = max(0.45 * (song_pos - self.time) * self.strumline.scroll_speed, 0.0)
-                self.y += sexo * scroll_mult
+                sexo = max(0.45 * (song_pos - self.time), 0.0)
+                self.y += sexo * scroll_mult * self.strumline.scroll_speed
 
                 if not self.is_end_piece:
-                    shit = (self.step_length - (sexo * 0.5))
-                    if shit >= self.step_length:
-                        shit = self.step_length
-                    
-                    self.scaleY = max((shit / self.get_frame_height()) * 0.452 * self.strumline.scroll_speed, 0.0)
+                    shit = (self.step_length / 100) * 1.05
+                    self.scaleY = max(shit - (sexo / self.get_frame_height()), 0.0) * self.strumline.scroll_speed
                 else:
-                    shit = (self.get_frame_height() - (sexo * 0.5))
+                    shit = (self.get_frame_height() - (sexo * self.strumline.scroll_speed))
                     if shit >= self.get_frame_height():
                         shit = self.get_frame_height()
                     
@@ -83,6 +81,6 @@ class Note(game.sprite.Sprite):
                 splash = game.fnf.notesplash.NoteSplash(strum.x, strum.y, self.direction)
                 self.strumline.splashes.add_child(splash)
         
-        if self.time <= song_pos - (450 / self.strumline.scroll_speed) and self.was_hit:
+        if self.time <= song_pos - ((350 / self.strumline.scroll_speed) + self.step_length) and self.was_hit:
             self.strumline.notes.remove_child(self)
 

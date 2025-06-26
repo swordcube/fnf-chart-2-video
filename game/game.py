@@ -37,7 +37,7 @@ class Game:
         self.last_total_time = 0.0
         self.tracked_dt = 0.0
 
-        self.bg_color = (128, 128, 128, 255)
+        self.bg_color = (30, 30, 30, 255)
         self.children = []
 
         self.image_cache = {}
